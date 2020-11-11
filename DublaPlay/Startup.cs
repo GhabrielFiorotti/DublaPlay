@@ -10,7 +10,7 @@ using Microsoft.Extensions.Hosting;
 using Repository.Contracts;
 using Repository.Repository;
 using Service.Contracts;
-using Service.Repository;
+using Service.Services;
 
 namespace DublaPlay
 {
