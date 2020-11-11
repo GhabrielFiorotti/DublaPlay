@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Repository.Contracts;
+using Repository.Models;
 using Repository.Repository;
 using Service.Contracts;
 using Service.Services;
@@ -27,7 +28,7 @@ namespace DublaPlay
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-
+            services.AddScoped(typeof(DublaPlayContexto));
             services.AddScoped<ICadastroRepository, CadastroRepository>();
             services.AddScoped<ICadastroService, CadastroService>();
 
