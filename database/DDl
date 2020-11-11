@@ -1,0 +1,154 @@
+-- MySQL Workbench Forward Engineering
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+
+-- -----------------------------------------------------
+-- Schema mydb
+-- -----------------------------------------------------
+DROP SCHEMA IF EXISTS `mydb` ;
+
+-- -----------------------------------------------------
+-- Schema mydb
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
+USE `mydb` ;
+
+-- -----------------------------------------------------
+-- Table `mydb`.`usuario`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `mydb`.`usuario` ;
+
+CREATE TABLE IF NOT EXISTS `mydb`.`usuario` (
+  `idusuario` INT NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(255) NOT NULL,
+  `genero` CHAR(1) NOT NULL,
+  `cpf` VARCHAR(11) NOT NULL,
+  `telefone` VARCHAR(11) NULL,
+  `endereco` VARCHAR(255) NULL,
+  `email` VARCHAR(255) NOT NULL,
+  `senha` VARCHAR(255) NOT NULL,
+  PRIMARY KEY (`idusuario`))
+ENGINE = InnoDB;
+
+CREATE UNIQUE INDEX `idusuario_UNIQUE` ON `mydb`.`usuario` (`idusuario` )  ;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`empresa`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `mydb`.`empresa` ;
+
+CREATE TABLE IF NOT EXISTS `mydb`.`empresa` (
+  `idempresa` INT NOT NULL AUTO_INCREMENT,
+  `nomerazao` VARCHAR(255) NOT NULL,
+  `CNPJ` VARCHAR(14) NOT NULL,
+  `telefone` VARCHAR(11) NULL,
+  `endereco` VARCHAR(255) NULL,
+  `email` VARCHAR(255) NOT NULL,
+  `senha` VARCHAR(255) NOT NULL,
+  PRIMARY KEY (`idempresa`))
+ENGINE = InnoDB;
+
+CREATE UNIQUE INDEX `idusuario_UNIQUE` ON `mydb`.`empresa` (`idempresa`  )  ;
+
+CREATE UNIQUE INDEX `cpf_UNIQUE` ON `mydb`.`empresa` (`CNPJ`  )  ;
+
+CREATE UNIQUE INDEX `email_UNIQUE` ON `mydb`.`empresa` (`email`  )  ;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`solicitacao`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `mydb`.`solicitacao` ;
+
+CREATE TABLE IF NOT EXISTS `mydb`.`solicitacao` (
+  `idsolicitacao` INT NOT NULL AUTO_INCREMENT,
+  `idempresa` INT NOT NULL,
+  `descricao` TEXT(4000) NOT NULL,
+  `status` ENUM('A', 'C', 'F', 'E') NOT NULL DEFAULT 'A' COMMENT 'C = CANCELADA, A = ATIVA, F = FINALIZADA, E = EM ATENDIMENTO',
+  `valor` FLOAT NOT NULL,
+  `genero_loucutor` CHAR(1) NOT NULL,
+  PRIMARY KEY (`idsolicitacao`),
+  CONSTRAINT `fk_solicitacao_usuario`
+    FOREIGN KEY (`idempresa`)
+    REFERENCES `mydb`.`empresa` (`idempresa`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+CREATE UNIQUE INDEX `idsolicitacao_UNIQUE` ON `mydb`.`solicitacao` (`idsolicitacao`  )  ;
+
+CREATE INDEX `fk_solicitacao_usuario_idx` ON `mydb`.`solicitacao` (`idempresa`  )  ;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`usuario`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `mydb`.`usuario` ;
+
+CREATE TABLE IF NOT EXISTS `mydb`.`usuario` (
+  `idusuario` INT NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(255) NOT NULL,
+  `genero` CHAR(1) NOT NULL,
+  `cpf` VARCHAR(11) NOT NULL,
+  `telefone` VARCHAR(11) NULL,
+  `endereco` VARCHAR(255) NULL,
+  `email` VARCHAR(255) NOT NULL,
+  `senha` VARCHAR(255) NOT NULL,
+  PRIMARY KEY (`idusuario`))
+ENGINE = InnoDB;
+
+CREATE UNIQUE INDEX `idusuario_UNIQUE` ON `mydb`.`usuario` (`idusuario`  )  ;
+
+CREATE UNIQUE INDEX `cpf_UNIQUE` ON `mydb`.`usuario` (`cpf`  )  ;
+
+CREATE UNIQUE INDEX `email_UNIQUE` ON `mydb`.`usuario` (`email`  )  ;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`contrato`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `mydb`.`contrato` ;
+
+CREATE TABLE IF NOT EXISTS `mydb`.`contrato` (
+  `idcontrato` INT NOT NULL,
+  `idsolicitacao` INT NOT NULL,
+  `usuario_idusuario` INT NOT NULL,
+  `idempresa` INT NOT NULL,
+  `descricao` TEXT(4000) NOT NULL,
+  `status_contrato` ENUM('A', 'C', 'F', 'E') NOT NULL DEFAULT 'A' COMMENT 'A = ACEITO, F = FINALIZADA, E = EM ATENDIMENTO, C = CANCELADO',
+  `audio` BLOB NOT NULL,
+  PRIMARY KEY (`idcontrato`),
+  CONSTRAINT `fk_atendimento_solicitacao1`
+    FOREIGN KEY (`idsolicitacao`)
+    REFERENCES `mydb`.`solicitacao` (`idsolicitacao`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_atendimento_empresa1`
+    FOREIGN KEY (`idempresa`)
+    REFERENCES `mydb`.`empresa` (`idempresa`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_atendimento_usuario1`
+    FOREIGN KEY (`usuario_idusuario`)
+    REFERENCES `mydb`.`usuario` (`idusuario`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+CREATE UNIQUE INDEX `idatendimento_UNIQUE` ON `mydb`.`contrato` (`idcontrato`  )  ;
+
+CREATE INDEX `fk_atendimento_solicitacao1_idx` ON `mydb`.`contrato` (`idsolicitacao`  )  ;
+
+CREATE UNIQUE INDEX `idsolicitacao_UNIQUE` ON `mydb`.`contrato` (`idsolicitacao`  )  ;
+
+CREATE INDEX `fk_atendimento_empresa1_idx` ON `mydb`.`contrato` (`idempresa`  )  ;
+
+CREATE INDEX `fk_atendimento_usuario1_idx` ON `mydb`.`contrato` (`usuario_idusuario`  )  ;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
