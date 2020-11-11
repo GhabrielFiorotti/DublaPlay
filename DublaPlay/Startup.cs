@@ -7,6 +7,10 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Repository.Contracts;
+using Repository.Repository;
+using Service.Contracts;
+using Service.Repository;
 
 namespace DublaPlay
 {
@@ -23,6 +27,10 @@ namespace DublaPlay
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            services.AddScoped<ICadastroRepository, CadastroRepository>();
+            services.AddScoped<ICadastroService, CadastroService>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
