@@ -28,12 +28,18 @@ namespace DublaPlay.Controllers
             return View();
         }
 
-        public IActionResult Cadastro()
+        public IActionResult CadastroEmpresa()
         {
             return View();
         }
 
         public IActionResult Login()
+        {
+            return View();
+        }
+
+
+        public IActionResult CadastroLocutor()
         {
             return View();
         }

@@ -103,17 +103,20 @@
     text-align: center;
     font-size: 26px;
   }
-.modal-title {
+
+  .modal-title {
     margin: 0;
     line-height: 1.42857143;
-}
-h4 {
+  }
+
+  h4 {
     display: block;
     margin-block-start: 1.33em;
     margin-block-end: 1.33em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
-}
+  }
+
   .modal-footer {
     background: #ecf0f1;
     border-color: #dee4e7;
@@ -121,7 +124,7 @@ h4 {
     font-size: 13px;
     justify-content: center;
 
-    
+
   }
 
   .trigger-btn {
@@ -135,13 +138,12 @@ h4 {
     <div class="col-md-12 text-center">
       <img src="~/img/logo.png">
       <form class="form-signin">
-        <button type="button" class="btn btn-dark btn btn-block" data-toggle="modal" data-target="#modallogin" style="background-color: black;">Faça login</button>
+        <button type="button" class="btn btn-dark btn btn-block" data-toggle="modal" data-target="#modallogin"
+          style="background-color: black;">Faça login</button>
         <br>
         <br>
-        <a href="http://localhost:5000/Home/Cadastro" class="btn btn-dark btn btn-block"
-          style="background-color: black;">
-          Cadastre-se
-        </a>
+        <button type="button" class="btn btn-dark btn btn-block" data-toggle="modal" data-target="#modalcadastro"
+          style="background-color: black;">Cadastre-se</button>
       </form>
     </div>
   </div>
@@ -151,7 +153,7 @@ h4 {
     <div class="modal-dialog">
       <div class="modal-content" role="document">
         <div class="modal-header">
-          <h4 class="modal-title" id="exampleModalLabel" >Login</h4>
+          <h4 class="modal-title" id="exampleModalLabel">Login</h4>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -160,7 +162,7 @@ h4 {
           <form action="/examples/actions/confirmation.php" method="post">
             <div class="form-group">
               <i class="fa fa-user"></i>
-              <input id="cpfLogin" type="text" class="form-control" placeholder="CPF" required="required">
+              <input id="cpfLogin" type="text" class="form-control" placeholder="CPF ou CNPJ" required="required">
             </div>
             <div class="form-group">
               <i class="fa fa-lock"></i>
@@ -174,6 +176,38 @@ h4 {
         </div>
         <div class="modal-footer">
           <a style="color: black;" href="#">Esqueceu a senha?</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+
+
+  <div class="modal fade" id="modalcadastro" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content" role="document">
+        <div class="modal-header">
+          <h4 class="modal-title" id="exampleModalLabel">Cadastro</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body modal-login">
+          <form action="/Home/CadastroEmpresa" method="GET">
+            <div class="form-group">
+              <input type="submit" class="btn btn-primary btn-block btn-lg" value="Fazer cadastro como empresa">
+            </div>
+          </form>
+          <form action="/Home/CadastroLocutor" method="GET">
+            <div class="form-group">
+              <input type="submit" class="btn btn-primary btn-block btn-lg" value="Fazer cadastro como locutor">
+            </div>
+          </form>
+
+        </div>
+        <div class="modal-footer">
+          <a style="color: black;" href="Home/Index">Faça login</a>
         </div>
       </div>
     </div>
