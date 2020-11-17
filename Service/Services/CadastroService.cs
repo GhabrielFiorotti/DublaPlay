@@ -25,5 +25,21 @@ namespace Service.Services
         {
             return _repository.CadastrarEmpresa(empresa);
         }
+
+        public int CadastrarContrato(Contrato contrato)
+        {
+            return _repository.CadastrarContrato(contrato);
+        }
+
+        public int CadastrarOrcamento(Orcamento orcamento)
+        {
+            return _repository.CadastrarOrcamento(orcamento);
+        }
+
+        public int CadastrarSolicitacao(Solicitacao solicitacao)
+        {
+            return _repository.CadastrarSolicitacao(solicitacao);
+
+        }
     }
 }
