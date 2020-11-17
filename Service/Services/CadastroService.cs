@@ -20,5 +20,10 @@ namespace Service.Services
         {
             return _repository.CadastrarUsuario(usuario);
         }
+
+        public int CadastrarEmpresa(Empresa empresa)
+        {
+            return _repository.CadastrarEmpresa(empresa);
+        }
     }
 }
