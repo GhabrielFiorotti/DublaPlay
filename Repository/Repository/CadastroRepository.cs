@@ -30,5 +30,20 @@ namespace Repository.Repository
 
             return empresa.idEmpresa;
         }
+
+        public int CadastrarContrato(Contrato contrato)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int CadastrarOrcamento(Orcamento orcamento)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int CadastrarSolicitacao(Solicitacao solicitacao)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
