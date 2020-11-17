@@ -23,5 +23,12 @@ namespace Repository.Repository
 
             return usuario.idUsuario;
         }
+        public int CadastrarEmpresa(Empresa empresa)
+        {
+            _con.Add(empresa);
+            _con.SaveChanges();
+
+            return empresa.idEmpresa;
+        }
     }
 }
