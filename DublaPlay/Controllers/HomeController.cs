@@ -7,17 +7,22 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using DublaPlay.Models;
 using Microsoft.Extensions.Configuration;
+using Service.Contracts;
+using Repository.Models;
 
 namespace DublaPlay.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        public HomeController(ILogger<HomeController> logger)
+        private readonly ICadastroService _service;
+
+        public HomeController(ILogger<HomeController> logger, ICadastroService service)
         {
             _logger = logger;
+            _service = service;
         }
-        
+
         public IActionResult Index()
         {
             return View();
@@ -25,6 +30,7 @@ namespace DublaPlay.Controllers
 
         public IActionResult Privacy()
         {
+            
             return View();
         }
 
@@ -41,7 +47,17 @@ namespace DublaPlay.Controllers
 
         public IActionResult CadastroLocutor()
         {
+           
             return View();
+        }
+
+        [HttpPost("[action]")]
+        public IActionResult CadastroLocutor([FromBody] Usuario usuario)
+        {
+          
+            _service.CadastrarUsuario(usuario);
+
+            return Ok("fafoi");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

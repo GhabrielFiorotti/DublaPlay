@@ -18,8 +18,10 @@ namespace Repository.Repository
 
         public int CadastrarUsuario(Usuario usuario)
         {
-            //Aqui vc faz suas querys para cadastrar as coisas no banco usando o _con
-            throw new NotImplementedException();
+            _con.Add(usuario);
+            _con.SaveChanges();
+
+            return usuario.idUsuario;
         }
     }
 }

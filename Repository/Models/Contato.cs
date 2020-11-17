@@ -11,5 +11,7 @@ namespace Repository.Models
         public int idContato { get; set; }
         public string Telefone { get; set; }
         public string Email { get; set; }
+        public string Fax { get; set; }
+
     }
 }

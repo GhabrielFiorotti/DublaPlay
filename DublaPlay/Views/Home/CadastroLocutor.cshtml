@@ -1,69 +1,101 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-br">
 <head>
- <meta charset="utf-8">
- <meta http-equiv="X-UA-Compatible" content="IE=edge">
- <meta name="viewport" content="width=device-width, initial-scale=1">
- <title>Cadastro Locutor</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cadastro Locutor</title>
 
- <link href="css/bootstrap.min.css" rel="stylesheet">
- <link href="css/style.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
- 
- <div id="main" class="container-fluid">
-  <h3 class="page-header">Cadastro</h3>
-  <form action="index.html">
-  	<div class="row">
-  	  <div class="form-group col-md-4">
-  	  	<label for="exampleInputName">Nome completo</label>
-  	  	<input type="name" class="form-control" id="name" placeholder="Digite o nome">
-  	  </div>
-	  <div class="form-group col-md-4">
-  	  	<label for="exampleInputCPF">CPF</label>
-  	  	<input type="cpf" class="form-control" id="cpf" placeholder="Digite o CPF">
-  	  </div>
-	  <div class="form-group col-md-4">
-  	  	<label for="exampleInputEndereco">Endereço completo</label>
-  	  	<input type="endereco" class="form-control" id="exampleInputEndereco" placeholder="Digite o Endereço">
-  	  </div>
-	</div>
-	
-	<div class="row">
-  	  <div class="form-group col-md-3">
-  	  	<label for="exampleInputEmail1">Email</label>
-  	  	<input type="email" class="form-control" id="email" placeholder="Digite o email">
-  	  </div>
-	  <div class="form-group col-md-3">
-		  <label for="exampleInputSexo">Sexo</label>
-  	  	<select name="select" class="form-control" id="sexo">
-			<option value="M">Masculino</option> 
-			<option value="F" selected>Feminino</option>
-		</select>
-  	  </div>
-	  <div class="form-group col-md-3">
-  	  	<label for="exampleInputNumber">Número de telefone</label>
-  	  	<input type="email" class="form-control" id="exampleInputNumber" placeholder="Digite o número de telefone">
-  	  </div>
-	  <div class="form-group col-md-3">
-  	  	<label for="exampleInputPassword">Senha</label>
-  	  	<input type="password" class="form-control" id="password" placeholder="Digite a senha">
-  	  </div>
-	</div>
-	<hr />
-	
-	<div class="row">
-	  <div class="col-md-12">
-	  	<button type="submit" class="btn btn-dark" style="background-color: black;">Criar cadastro</button>
-		<a href="Index" class="btn btn-default">Cancelar</a>
-	  </div>
-	</div>
 
-  </form>
- </div>
- 
+    <div id="main" class="container-fluid">
+        <h3 class="page-header">Cadastro</h3>
+        <form action="index.html">
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <label for="exampleInputName">Nome completo</label>
+                    <input type="name" class="form-control" id="name" placeholder="Digite o nome">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="exampleInputCPF">CPF</label>
+                    <input type="cpf" class="form-control" id="cpf" placeholder="Digite o CPF">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="exampleInputEndereco">Endereço completo</label>
+                    <input type="endereco" class="form-control" id="exampleInputEndereco" placeholder="Digite o Endereço">
+                </div>
+            </div>
 
- <script src="js/jquery.min.js"></script>
- <script src="js/bootstrap.min.js"></script>
+            <div class="row">
+                <div class="form-group col-md-3">
+                    <label for="exampleInputEmail1">Email</label>
+                    <input type="email" class="form-control" id="email" placeholder="Digite o email">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="exampleInputSexo">Sexo</label>
+                    <select name="select" class="form-control" id="sexo">
+                        <option value="M">Masculino</option>
+                        <option value="F" selected>Feminino</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="exampleInputNumber">Número de telefone</label>
+                    <input type="email" class="form-control" id="exampleInputNumber" placeholder="Digite o número de telefone">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="exampleInputPassword">Senha</label>
+                    <input type="password" class="form-control" id="password" placeholder="Digite a senha">
+                </div>
+            </div>
+            <hr />
+
+            <div class="row">
+                <div class="col-md-12">
+                    <button type="button" id="btnCadastrar" class="btn btn-dark" style="background-color: black;">Criar cadastro</button>
+                    <a href="Index" class="btn btn-default">Cancelar</a>
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+            integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+            crossorigin="anonymous"></script>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <script>
+
+        //$("#btnCadastrar").on("click", function () {
+
+
+        //    debugger;
+        //    $("#main").serialize()
+        //    $.ajax({
+        //        type: "POST",
+        //        url: 'http://localhost:63505/CadastroLocutor',
+        //        data: $("#main").serialize(),
+        //        success: function () {
+
+        //        }
+        //    });
+
+        //    return false;
+
+        //});
+
+
+
+
+
+
+    </script>
+
+
 </body>
 </html>
