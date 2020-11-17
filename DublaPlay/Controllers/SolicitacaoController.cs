@@ -9,6 +9,11 @@ namespace DublaPlay.Controllers
 {
     public class SolicitacaoController : Controller
     {
-       
+        private readonly ICadastroService _service;
+
+        public SolicitacaoController(ICadastroService service)
+        {
+            _service = service;
+        }
     }
 }
