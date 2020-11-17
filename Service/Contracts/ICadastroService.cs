@@ -8,5 +8,7 @@ namespace Service.Contracts
     public interface ICadastroService
     {
         public int CadastrarUsuario(Usuario usuario);
+
+        public int CadastrarEmpresa(Empresa empresa);
     }
 }
