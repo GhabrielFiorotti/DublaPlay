@@ -31,7 +31,7 @@ namespace Repository.Models
         {
             //TODO:
             //Corrigir iconfiguration para pegar string
-            optionsBuilder.UseSqlServer("Data Source=localhost\\SQLEXPRESS;Initial Catalog=DublaPlay;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+            optionsBuilder.UseSqlServer("Data Source=LAPTOP-DVJNC82J;Initial Catalog=DublaPlay;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
         }
 
         public DbSet<Comentario> Comentario { get; set; }

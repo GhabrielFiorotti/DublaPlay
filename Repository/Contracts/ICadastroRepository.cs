@@ -8,5 +8,6 @@ namespace Repository.Contracts
     public interface ICadastroRepository
     {
         public int CadastrarUsuario(Usuario usuario);
+        int CadastrarEmpresa(Empresa empresa);
     }
 }
