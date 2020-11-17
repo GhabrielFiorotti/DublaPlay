@@ -51,14 +51,7 @@ namespace DublaPlay.Controllers
             return View();
         }
 
-        [HttpPost("[action]")]
-        public IActionResult CadastroLocutor([FromBody] Usuario usuario)
-        {
-          
-            _service.CadastrarUsuario(usuario);
-
-            return Ok("fafoi");
-        }
+     
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
