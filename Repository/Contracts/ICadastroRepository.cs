@@ -12,6 +12,5 @@ namespace Repository.Contracts
         public int CadastrarOrcamento(Orcamento orcamento);
         public int CadastrarSolicitacao(Solicitacao solicitacao);
         public int CadastrarUsuario(Usuario usuario);
-
     }
 }
