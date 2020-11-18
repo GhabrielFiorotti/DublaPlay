@@ -29,8 +29,17 @@ namespace DublaPlay
         {
             services.AddControllersWithViews();
             services.AddScoped(typeof(DublaPlayContexto));
+
             services.AddScoped<ICadastroRepository, CadastroRepository>();
+            services.AddScoped<IAlteraRepository, AlteraRepository>();
+            services.AddScoped<IBuscaRepository, BuscaRepository>();
+            services.AddScoped<IDeletaRepository, DeletaRepository>();
+
+            services.AddScoped<IDeletaService, DeletaService>();
             services.AddScoped<ICadastroService, CadastroService>();
+            services.AddScoped<IAlteraService, AlteraService>();
+            services.AddScoped<IBuscaService, BuscaService>();
+
 
         }
 
