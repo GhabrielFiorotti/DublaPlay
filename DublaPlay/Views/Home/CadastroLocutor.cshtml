@@ -62,39 +62,41 @@
         </form>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.js"
-            integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-            crossorigin="anonymous"></script>
+    @section scripts {
 
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+        <script>
 
-    <script>
-
-        //$("#btnCadastrar").on("click", function () {
+            $("#btnCadastrar").click(function () {
 
 
-        //    debugger;
-        //    $("#main").serialize()
-        //    $.ajax({
-        //        type: "POST",
-        //        url: 'http://localhost:63505/CadastroLocutor',
-        //        data: $("#main").serialize(),
-        //        success: function () {
-
-        //        }
-        //    });
-
-        //    return false;
-
-        //});
+                alert("dsdas");
 
 
+                $.ajax({
+                    type: "POST",
+                    url: 'http://localhost:63505/CadastroLocutor',
+                    data: {
+                        "idUsuario": null,
+                        "endereco": null,
+                        "contato": null,
+                        "nome": "sHIFUBEM",
+                        "genero": null,
+                        "cpf": "4848",
+                        "senha": null
+                    },
+                    success: function () {
+
+                    }
+                });
+
+                return false;
+            });
 
 
+        </script>
+    }
 
 
-    </script>
 
 
 </body>
