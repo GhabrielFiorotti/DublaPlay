@@ -24,13 +24,33 @@ namespace DublaPlay.Controllers
         [HttpPost("[action]")]
         public IActionResult CadastroEndereco([FromBody] Endereco endereco)
         {
-            Console.WriteLine(endereco);
 
-            
-            _service.CadastrarEndereco(endereco);
+            try
+            {
+                if (ModelState.IsValid)
+                {
 
 
-            return Ok("fafoi");
+                    return Ok(new MessageReturn("Sucesso ao Adicionar Projeto",
+                                                "",
+                                                true,
+                                                  _service.CadastrarEndereco(endereco)))));
+
+                }
+                else
+                {
+                    return BadRequest(new MessageReturn("Erro ao Adicionar Projeto",
+                                                        "Preencha todos os campos.",
+                                                        false));
+                }
+            }
+            catch
+            {
+                return BadRequest(new MessageReturn("Erro ao Adicionar Projeto",
+                                                   "Erro ao adicionar projeto, por favor tente noavmente mais tarde.",
+                                                   false));
+
+            }
         }
     }
 }

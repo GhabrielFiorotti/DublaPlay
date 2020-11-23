@@ -3,6 +3,7 @@ using Repository.Contracts;
 using Repository.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Repository.Repository
@@ -18,12 +19,35 @@ namespace Repository.Repository
 
         public int AlterarContrato(Contrato contrato)
         {
-            throw new NotImplementedException();
+            Contrato returnContrato = _con.Contrato.Where(x => x.idContrato == contrato.idContrato).First();
+
+            if (returnContrato != null)
+            {
+                returnContrato.Orcamento = contrato.Orcamento == null ? returnContrato.Orcamento : contrato.Orcamento;
+                returnContrato.StatusContrato = contrato.StatusContrato == 0 ? returnContrato.StatusContrato : contrato.StatusContrato;
+                returnContrato.Descricao = contrato.Descricao == null ? returnContrato.Descricao : contrato.Descricao;
+
+                _con.SaveChanges();
+
+            }
+            return returnContrato.idContrato;
         }
 
         public int AlterarEmpresa(Empresa empresa)
         {
-            throw new NotImplementedException();
+            Empresa returnEmpresa = _con.Contrato.Where(x => x.idContrato == contrato.idContrato).First();
+
+            if (returnContrato != null)
+            {
+                returnContrato.Orcamento = contrato.Orcamento == null ? returnContrato.Orcamento : contrato.Orcamento;
+                returnContrato.StatusContrato = contrato.StatusContrato == 0 ? returnContrato.StatusContrato : contrato.StatusContrato;
+                returnContrato.Descricao = contrato.Descricao == null ? returnContrato.Descricao : contrato.Descricao;
+
+                _con.SaveChanges();
+
+            }
+            return returnContrato.idContrato;
+
         }
 
         public int AlterarOrcamento(Orcamento orcamento)
