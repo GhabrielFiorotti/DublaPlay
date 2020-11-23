@@ -33,7 +33,7 @@ namespace Service.Services
             return _repository.CadastrarContrato(contrato);
         }
 
-        public int CadastrarOrcamento(Orcamento orcamento)
+        public int CadastrarOrcamento(OrcamentoViewModel orcamento)
         {
             return _repository.CadastrarOrcamento(orcamento);
         }

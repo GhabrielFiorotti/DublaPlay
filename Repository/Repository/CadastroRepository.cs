@@ -46,16 +46,30 @@ namespace Repository.Repository
             throw new NotImplementedException();
         }
 
-        public int CadastrarOrcamento(Orcamento orcamento)
+        public int CadastrarOrcamento(OrcamentoViewModel orcamento)
         {
-            throw new NotImplementedException();
+
+            var solicitacao = _con.Solicitacao.Where(x => x.idSolicitacao == orcamento.idSolicitacao).FirstOrDefault();
+            var usuario = _con.Usuario.Where(x => x.idUsuario == orcamento.idUsuario).FirstOrDefault();
+
+            Orcamento orcamentoInsert = new Orcamento
+            {
+                Solicitacao = solicitacao,
+                Usuario = usuario,
+                NomeAudio = orcamento.nomeAudio
+
+            };
+
+            _con.Add(orcamentoInsert);
+            _con.SaveChanges();
+
+            return orcamentoInsert.idOrcamento;
         }
 
         public int CadastrarSolicitacao(SolicitacaoViewModel solicitacao)
         {
 
             var empresa = _con.Empresa.Where(x => x.idEmpresa == solicitacao.idEmpresa).FirstOrDefault();
-
 
             Solicitacao solicitacaoInsert = new Solicitacao
             {
@@ -73,5 +87,6 @@ namespace Repository.Repository
             return solicitacaoInsert.idSolicitacao;
         }
 
+        
     }
 }

@@ -34,7 +34,6 @@ namespace Repository.Models
             optionsBuilder.UseSqlServer("Data Source=LAPTOP-DVJNC82J;Initial Catalog=DublaPlay;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
         }
 
-        public DbSet<Comentario> Comentario { get; set; }
         public DbSet<Contato> Contato { get; set; }
         public DbSet<Contrato> Contrato { get; set; }
         public DbSet<Empresa> Empresa { get; set; }

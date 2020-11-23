@@ -16,5 +16,6 @@ namespace DublaPlay.Models
         public string Cnpj { get; set; }
         public string Senha { get; set; }
         public string NomeRazao { get; set; }
+
     }
 }
