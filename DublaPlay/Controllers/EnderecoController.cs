@@ -47,7 +47,7 @@ namespace DublaPlay.Controllers
             catch
             {
                 return BadRequest(new MessageReturn("Erro ao Adicionar Projeto",
-                                                   "Erro ao adicionar projeto, por favor tente noavmente mais tarde.",
+                                                   "Erro ao adicionar projeto, por favor tente novamente mais tarde.",
                                                    false));
 
             }

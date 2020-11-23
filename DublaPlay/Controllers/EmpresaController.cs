@@ -1,5 +1,6 @@
 ﻿using DublaPlay.Models;
 using Microsoft.AspNetCore.Mvc;
+using Repository.Models;
 using Service.Contracts;
 using System;
 using System.Collections.Generic;
@@ -23,11 +24,32 @@ namespace DublaPlay.Controllers
         public IActionResult CadastroEmpresa([FromBody] Empresa empresa)
         {
 
-            _service.CadastrarEmpresa(empresa);
+            try
+            {
+                if (ModelState.IsValid)
+                {
 
 
+                    return Ok(new MessageReturn("Sucesso ao Adicionar Projeto",
+                                                "",
+                                                true,
+                                                  _service.CadastrarEmpresa(empresa)));
 
-            return Ok("fafoi");
+                }
+                else
+                {
+                    return BadRequest(new MessageReturn("Erro ao Adicionar Projeto",
+                                                        "Preencha todos os campos.",
+                                                        false));
+                }
+            }
+            catch
+            {
+                return BadRequest(new MessageReturn("Erro ao Adicionar Projeto",
+                                                   "Erro ao adicionar projeto, por favor tente novamente mais tarde.",
+                                                   false));
+
+            }
         }
     }
 }
