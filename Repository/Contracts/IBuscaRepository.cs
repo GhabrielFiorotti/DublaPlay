@@ -7,10 +7,16 @@ namespace Repository.Contracts
 {
     public interface IBuscaRepository
     {
-        public Contrato BuscarContrato(Contrato contrato);
-        public Empresa BuscarEmpresa(Empresa empresa);
-        public Orcamento BuscarOrcamento(Orcamento orcamento);
-        public Solicitacao BuscarSolicitacao(Solicitacao solicitacao);
-        public Usuario BuscarUsuario(Usuario usuario);
+        Contrato BuscarContrato(Contrato contrato);
+        Empresa BuscarEmpresa(Empresa empresa);
+        Orcamento BuscarOrcamento(Orcamento orcamento);
+        Solicitacao BuscarSolicitacao(Solicitacao solicitacao);
+        Usuario BuscarUsuario(Usuario usuario);
+        List<Contrato> BuscarContratos(int page, int size);
+        List<Empresa> BuscarEmpresas(int page, int size);
+        List<Orcamento> BuscarOrcamentos(int page, int size);
+        List<Solicitacao> BuscarSolicitacoes(int page, int size);
+        List<Usuario> BuscarUsuarios(int page, int size);
+
     }
 }

@@ -40,5 +40,34 @@ namespace Service.Services
         {
             return _repository.BuscarUsuario(usuario);
         }
+
+        public List<Contrato> BuscarContratos(int page, int size)
+        {
+            return _repository.BuscarContratos(page, size);
+        }
+
+        public List<Empresa> BuscarEmpresas(int page, int size)
+        {
+            return _repository.BuscarEmpresas(page, size);
+        }
+
+        public List<Orcamento> BuscarOrcamentos(int page, int size)
+        {
+            return _repository.BuscarOrcamentos(page, size);
+
+        }
+
+        public List<Solicitacao> BuscarSolicitacoes(int page, int size)
+        {
+            return _repository.BuscarSolicitacoes(page, size);
+
+        }
+
+        public List<Usuario> BuscarUsuarios(int page, int size)
+        {
+
+            return _repository.BuscarUsuarios(page, size);
+
+        }
     }
 }

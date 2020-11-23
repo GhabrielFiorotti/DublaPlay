@@ -16,6 +16,6 @@ namespace DublaPlay.Models
         public DateTime Data { get; set; }
         public string Descricao { get; set; }
         public int StatusContrato { get; set; }
-        public byte Audio { get; set; }
+        public string Audio { get; set; }
     }
 }
