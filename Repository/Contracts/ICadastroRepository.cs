@@ -9,7 +9,7 @@ namespace Repository.Contracts
 {
     public interface ICadastroRepository
     {
-        public int CadastrarContrato(Contrato contrato);
+        public int CadastrarContrato(ContratoViewModel contrato);
         public int CadastrarEmpresa(Empresa empresa);
         public int CadastrarOrcamento(OrcamentoViewModel orcamento);
         public int CadastrarSolicitacao(SolicitacaoViewModel solicitacao);
