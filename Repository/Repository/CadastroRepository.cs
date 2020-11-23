@@ -1,5 +1,6 @@
 ﻿using DublaPlay.Models;
 using Repository.Contracts;
+using Repository.DTO;
 using Repository.Models;
 using System;
 using System.Collections.Generic;
@@ -31,6 +32,14 @@ namespace Repository.Repository
             return empresa.idEmpresa;
         }
 
+        public int CadastrarEndereco(Endereco endereco)
+        {
+            _con.Add(endereco);
+            _con.SaveChanges();
+
+            return endereco.idEndereco;
+        }
+
         public int CadastrarContrato(Contrato contrato)
         {
             throw new NotImplementedException();
@@ -41,9 +50,15 @@ namespace Repository.Repository
             throw new NotImplementedException();
         }
 
-        public int CadastrarSolicitacao(Solicitacao solicitacao)
+        public int CadastrarSolicitacao(SolicitacaoViewModel solicitacao)
         {
-            throw new NotImplementedException();
+            Console.WriteLine(solicitacao);
+
+            _con.Add(solicitacao);
+            _con.SaveChanges();
+
+            return 0;
         }
+
     }
 }

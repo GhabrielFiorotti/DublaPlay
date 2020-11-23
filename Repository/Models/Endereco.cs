@@ -7,6 +7,7 @@ namespace Repository.Models
 {
     public class Endereco
     {
+
         [Key]
         public int idEndereco { get; set; }
         public string Rua { get; set; }

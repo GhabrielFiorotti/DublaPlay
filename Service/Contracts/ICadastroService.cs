@@ -1,4 +1,5 @@
 ﻿using DublaPlay.Models;
+using Repository.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -12,5 +13,6 @@ namespace Service.Contracts
         public int CadastrarOrcamento(Orcamento orcamento);
         public int CadastrarSolicitacao(Solicitacao solicitacao);
         public int CadastrarUsuario(Usuario usuario);
+        public int CadastrarEndereco(Endereco endereco);
     }
 }

@@ -12,8 +12,7 @@ namespace DublaPlay.Models
         public int idOrcamento { get; set; }
         public Usuario Usuario { get; set; }
         public Solicitacao Solicitacao { get; set; }
-        public DateTime Data { get; set; }
-        public decimal Valor { get; set; }
-        public byte AudioPrevia { get; set; }
+   
+        public string NomeAudio { get; set; }
     }
 }

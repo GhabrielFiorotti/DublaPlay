@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using DublaPlay.Models;
 using Microsoft.AspNetCore.Mvc;
+using Repository.Models;
 using Service.Contracts;
 
 namespace DublaPlay.Controllers
@@ -20,7 +21,6 @@ namespace DublaPlay.Controllers
         [HttpPost("[action]")]
         public IActionResult CadastroLocutor([FromBody] Usuario usuario)
         {
-
             _service.CadastrarUsuario(usuario);
 
             return Ok("fafoi");

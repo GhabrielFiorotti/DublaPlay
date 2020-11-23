@@ -1,5 +1,7 @@
 ﻿using DublaPlay.Models;
 using Repository.Contracts;
+using Repository.DTO;
+using Repository.Models;
 using Service.Contracts;
 using System;
 using System.Collections.Generic;
@@ -36,10 +38,15 @@ namespace Service.Services
             return _repository.CadastrarOrcamento(orcamento);
         }
 
-        public int CadastrarSolicitacao(Solicitacao solicitacao)
+        public int CadastrarSolicitacao(SolicitacaoViewModel solicitacao)
         {
             return _repository.CadastrarSolicitacao(solicitacao);
 
         }
+
+        public int CadastrarEndereco(Endereco endereco)
+        {
+            return _repository.CadastrarEndereco(endereco);
+         }
     }
 }
