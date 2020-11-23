@@ -21,9 +21,9 @@ namespace DublaPlay.Controllers
         [HttpPost("[action]")]
         public IActionResult CadastroSolicitacao([FromBody] SolicitacaoViewModel solicitacao)
         {
-            _service.CadastrarSolicitacao(solicitacao);
+            
 
-            return Ok("fafoi");
+            return Ok(_service.CadastrarSolicitacao(solicitacao));
         }
     }
 }
