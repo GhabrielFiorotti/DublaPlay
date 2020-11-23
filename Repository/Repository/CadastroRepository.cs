@@ -41,9 +41,28 @@ namespace Repository.Repository
             return endereco.idEndereco;
         }
 
-        public int CadastrarContrato(Contrato contrato)
+        public int CadastrarContrato(ContratoViewModel contrato)
         {
-            throw new NotImplementedException();
+            var empresa = _con.Empresa.Where(x => x.idEmpresa == contrato.idEmpresa).FirstOrDefault();
+            var usuario = _con.Usuario.Where(x => x.idUsuario == contrato.idUsuario).FirstOrDefault();
+            var orcamento = _con.Orcamento.Where(x => x.idOrcamento == contrato.idOrcamento).FirstOrDefault();
+
+            Contrato contratoInsert = new Contrato
+            {
+                Usuario = usuario,
+                Empresa = empresa,
+                Orcamento = orcamento,
+                Data = DateTime.Now,
+                Descricao = contrato.Descricao,
+                StatusContrato = contrato.StatusContrato,
+                Audio = contrato.Audio
+
+            };
+
+            _con.Add(contratoInsert);
+            _con.SaveChanges();
+
+            return contratoInsert.idContrato;
         }
 
         public int CadastrarOrcamento(OrcamentoViewModel orcamento)

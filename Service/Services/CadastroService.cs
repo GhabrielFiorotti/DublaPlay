@@ -28,7 +28,7 @@ namespace Service.Services
             return _repository.CadastrarEmpresa(empresa);
         }
 
-        public int CadastrarContrato(Contrato contrato)
+        public int CadastrarContrato(ContratoViewModel contrato)
         {
             return _repository.CadastrarContrato(contrato);
         }
