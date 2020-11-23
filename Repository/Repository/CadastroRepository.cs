@@ -9,7 +9,7 @@ using System.Text;
 
 namespace Repository.Repository
 {
-    public class CadastroRepository: ICadastroRepository
+    public class CadastroRepository : ICadastroRepository
     {
         private DublaPlayContexto _con { get; set; }
 
@@ -53,9 +53,12 @@ namespace Repository.Repository
 
         public int CadastrarSolicitacao(SolicitacaoViewModel solicitacao)
         {
-            Console.WriteLine(solicitacao);
 
-            //_con.Solicitacao.Where(x=>x.)
+
+            Solicitacao solicitaaco = new Solicitacao
+            {
+                Empresa = _con.Empresa.Where(x => x.idEmpresa == solicitacao.idEmpresa).First()
+            };
 
             _con.Add(solicitacao);
             _con.SaveChanges();
