@@ -1,6 +1,6 @@
 ﻿using DublaPlay.Models;
 using Repository.Contracts;
-using Repository.DTO;
+using Repository.ViewModel;
 using Repository.Models;
 using Service.Contracts;
 using System;

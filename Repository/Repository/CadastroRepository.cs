@@ -1,9 +1,10 @@
 ﻿using DublaPlay.Models;
 using Repository.Contracts;
-using Repository.DTO;
 using Repository.Models;
+using Repository.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Repository.Repository
@@ -53,6 +54,8 @@ namespace Repository.Repository
         public int CadastrarSolicitacao(SolicitacaoViewModel solicitacao)
         {
             Console.WriteLine(solicitacao);
+
+            //_con.Solicitacao.Where(x=>x.)
 
             _con.Add(solicitacao);
             _con.SaveChanges();

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Service.Contracts;
 using DublaPlay.Models;
-using DublaPlay.DTO;
+using Repository.ViewModel;
 
 namespace DublaPlay.Controllers
 {

@@ -1,6 +1,6 @@
 ﻿using DublaPlay.Models;
-using Repository.DTO;
 using Repository.Models;
+using Repository.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Text;
