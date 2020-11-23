@@ -25,6 +25,8 @@ namespace DublaPlay.Controllers
 
             _service.CadastrarEmpresa(empresa);
 
+
+
             return Ok("fafoi");
         }
     }
