@@ -34,7 +34,7 @@ namespace DublaPlay.Controllers
                     return Ok(new MessageReturn("Sucesso ao Adicionar Projeto",
                                                 "",
                                                 true,
-                                                  _service.CadastrarEndereco(endereco)))));
+                                                  _service.CadastrarEndereco(endereco)));
 
                 }
                 else
