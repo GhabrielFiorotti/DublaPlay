@@ -8,7 +8,7 @@ namespace Repository.ViewModel
     public class SolicitacaoViewModel
     {
         public int idSolicitacao { get; set; }
-        public int Empresa { get; set; }
+        public int idEmpresa { get; set; }
         public DateTime Data { get; set; }
         public string Descricao { get; set; }
         public string StatusSolicitacao { get; set; }
