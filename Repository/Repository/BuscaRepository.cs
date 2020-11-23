@@ -38,6 +38,15 @@ namespace Repository.Repository
             return _con.Solicitacao.Where(x => x.idSolicitacao == solicitacao.idSolicitacao).FirstOrDefault();
         }
 
+        public List<Solicitacao> BuscarSolicitacaoAberto(int page, int size)
+        {
+            return _con.Solicitacao
+                    .Skip((page - 1) * size)
+                    .Take(size)
+                    .Where(x => x.StatusSolicitacao == "Aberto")
+                    .ToList();
+        }
+
         public Usuario BuscarUsuario(Usuario usuario)
         {
             return _con.Usuario.Where(x => x.idUsuario == usuario.idUsuario).FirstOrDefault();
