@@ -54,16 +54,23 @@ namespace Repository.Repository
         public int CadastrarSolicitacao(SolicitacaoViewModel solicitacao)
         {
 
+            var empresa = _con.Empresa.Where(x => x.idEmpresa == solicitacao.idEmpresa).FirstOrDefault();
 
-            Solicitacao solicitaaco = new Solicitacao
+
+            Solicitacao solicitacaoInsert = new Solicitacao
             {
-                Empresa = _con.Empresa.Where(x => x.idEmpresa == solicitacao.idEmpresa).First()
+                Data = DateTime.Now,
+                Descricao = solicitacao.Descricao,
+                StatusSolicitacao = solicitacao.StatusSolicitacao,
+                Valor = solicitacao.Valor,
+                GeneroLoucutor = solicitacao.GeneroLoucutor,
+                Empresa = empresa
             };
 
-            _con.Add(solicitacao);
+            _con.Add(solicitacaoInsert);
             _con.SaveChanges();
 
-            return 0;
+            return solicitacaoInsert.idSolicitacao;
         }
 
     }
