@@ -25,7 +25,7 @@ namespace Repository.Repository
 
         public Empresa BuscarEmpresa(Empresa empresa)
         {
-            return _con.Empresa.Where(x => x.idEmpresa == empresa.idEmpresa).FirstOrDefault();
+            return _con.Empresa.Where(x => x.Cnpj == empresa.Cnpj && x.Senha == empresa.Senha).FirstOrDefault();
         }
 
         public Orcamento BuscarOrcamento(Orcamento orcamento)
