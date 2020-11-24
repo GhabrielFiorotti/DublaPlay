@@ -12,6 +12,7 @@ namespace Service.Contracts
         public Orcamento BuscarOrcamento(Orcamento orcamento);
         public Solicitacao BuscarSolicitacao(Solicitacao solicitacao);
         public Usuario BuscarUsuario(Usuario usuario);
+        List<Solicitacao> BuscarSolicitacaoPorEmpresa(int page, int size, int idEmpresa);
         List<Solicitacao> BuscarSolicitacaoAberto(int page, int size);
         List<Contrato> BuscarContratos(int page, int size);
         List<Empresa> BuscarEmpresas(int page, int size);

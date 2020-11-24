@@ -1,4 +1,5 @@
 ﻿using DublaPlay.Models;
+using Microsoft.EntityFrameworkCore;
 using Repository.Contracts;
 using Repository.Models;
 using System;
@@ -53,6 +54,16 @@ namespace Repository.Repository
 
         }
 
+        public List<Solicitacao> BuscarSolicitacaoPorEmpresa(int page, int size, int idEmpresa)
+        {
+            return _con.Solicitacao
+                      .Skip((page - 1) * size)
+                      .Include(j => j.Empresa)
+                      .Take(size)
+                      .Where(x => x.Empresa.idEmpresa == idEmpresa)
+                      .ToList();
+        }
+
         public List<Contrato> BuscarContratos(int page, int size)
         {
             return _con.Contrato
@@ -92,6 +103,6 @@ namespace Repository.Repository
                         .Take(size)
                         .ToList();
         }
-                
+
     }
 }

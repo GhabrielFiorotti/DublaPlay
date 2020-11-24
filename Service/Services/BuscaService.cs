@@ -41,6 +41,11 @@ namespace Service.Services
             return _repository.BuscarUsuario(usuario);
         }
 
+        public List<Solicitacao> BuscarSolicitacaoPorEmpresa(int page, int size, int idEmpresa)
+        {
+            return _repository.BuscarSolicitacaoPorEmpresa(page, size, idEmpresa);
+        }
+
         public List<Solicitacao> BuscarSolicitacaoAberto(int page, int size)
         {
             return _repository.BuscarSolicitacaoAberto(page, size);
