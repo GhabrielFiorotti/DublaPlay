@@ -15,8 +15,8 @@ namespace DublaPlay.Controllers
         private readonly ICadastroService _service;
         private readonly IBuscaService _serviceBuscar;
         private readonly IDeletaService _servicedeletar;
-        
-        public SolicitacaoController(ICadastroService service, IBuscaService serviceBusca,IDeletaService serviceDeleta )
+
+        public SolicitacaoController(ICadastroService service, IBuscaService serviceBusca, IDeletaService serviceDeleta)
         {
             _service = service;
             _serviceBuscar = serviceBusca;
@@ -88,9 +88,8 @@ namespace DublaPlay.Controllers
                                                    false));
 
             }
+
+
         }
-
-
-
     }
 }

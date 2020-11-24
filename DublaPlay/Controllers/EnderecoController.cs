@@ -30,8 +30,7 @@ namespace DublaPlay.Controllers
                 if (ModelState.IsValid)
                 {
 
-
-                    return Ok(new MessageReturn("Sucesso ao Adicionar Projeto",
+                    return Ok(new MessageReturn("Sucesso ao Adicionar Endereco",
                                                 "",
                                                 true,
                                                   _service.CadastrarEndereco(endereco)));
@@ -39,14 +38,14 @@ namespace DublaPlay.Controllers
                 }
                 else
                 {
-                    return BadRequest(new MessageReturn("Erro ao Adicionar Projeto",
+                    return BadRequest(new MessageReturn("Erro ao Adicionar Endereco",
                                                         "Preencha todos os campos.",
                                                         false));
                 }
             }
             catch
             {
-                return BadRequest(new MessageReturn("Erro ao Adicionar Projeto",
+                return BadRequest(new MessageReturn("Erro ao Adicionar Endereco",
                                                    "Erro ao adicionar projeto, por favor tente novamente mais tarde.",
                                                    false));
 

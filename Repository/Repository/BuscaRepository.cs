@@ -26,7 +26,7 @@ namespace Repository.Repository
 
         public Empresa BuscarEmpresa(Empresa empresa)
         {
-            return _con.Empresa.Where(x => x.idEmpresa == empresa.idEmpresa).FirstOrDefault();
+            return _con.Empresa.Where(x => x.Cnpj == empresa.Cnpj && x.Senha == empresa.Senha).FirstOrDefault();
         }
 
         public Orcamento BuscarOrcamento(Orcamento orcamento)
@@ -39,18 +39,20 @@ namespace Repository.Repository
             return _con.Solicitacao.Where(x => x.idSolicitacao == solicitacao.idSolicitacao).FirstOrDefault();
         }
 
+
         public List<Solicitacao> BuscarSolicitacaoAberto(int page, int size)
         {
             return _con.Solicitacao
                     .Skip((page - 1) * size)
                     .Take(size)
-                    .Where(x => x.StatusSolicitacao == "Aberto")
+                    .Where(x => x.StatusSolicitacao == "A")
                     .ToList();
         }
 
         public Usuario BuscarUsuario(Usuario usuario)
         {
-            return _con.Usuario.Where(x => x.idUsuario == usuario.idUsuario).FirstOrDefault();
+
+            return _con.Usuario.Where(x => x.Cpf == usuario.Cpf && x.Senha == usuario.Senha).FirstOrDefault();
 
         }
 

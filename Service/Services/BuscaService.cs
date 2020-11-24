@@ -79,5 +79,6 @@ namespace Service.Services
             return _repository.BuscarUsuarios(page, size);
 
         }
+
     }
 }
