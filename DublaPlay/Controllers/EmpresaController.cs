@@ -51,5 +51,22 @@ namespace DublaPlay.Controllers
 
             }
         }
+        [HttpPost("[action]")]
+        public IActionResult LoginEmpresa([FromBody] Empresa empresa)
+        {
+
+            if (_serviceBusca.BuscarEmpresa(empresa) != null)
+            {
+                return Ok("Logado com sucesso");
+
+            }
+            else
+            {
+                return Ok("Não pois realizar o login, verifique se os dados foram digitados corretamente.");
+
+            }
+
+        }
+
     }
 }

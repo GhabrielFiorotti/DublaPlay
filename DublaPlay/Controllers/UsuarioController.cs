@@ -32,15 +32,15 @@ namespace DublaPlay.Controllers
         [HttpPost("[action]")]
         public IActionResult LoginUsuario([FromBody] Usuario usuario)
         {
-
+            
             if (_serviceBusca.BuscarUsuario(usuario) != null)
             {
-                return Ok("logado");
+                return Ok("Logado com sucesso");
 
             }
             else
             {
-                return Ok("nao logado");
+                return Ok("Não pois realizar o login, verifique se os dados foram digitados corretamente.");
 
             }
 
