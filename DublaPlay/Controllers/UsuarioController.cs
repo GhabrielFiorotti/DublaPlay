@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DublaPlay.Common;
 using DublaPlay.Models;
 using Microsoft.AspNetCore.Mvc;
 using Repository.Models;
@@ -27,14 +28,17 @@ namespace DublaPlay.Controllers
 
             try
             {
+                GravarTxt gravar = new GravarTxt();
                 if (ModelState.IsValid)
                 {
 
+                    gravar.Gravar(String.Format("Usuario {0} logou", usuario.Nome));
 
                     return Ok(new MessageReturn("Sucesso ao Adicionar Projeto",
                                                 "",
                                                 true,
                                                   _service.CadastrarUsuario(usuario)));
+
 
                 }
                 else
