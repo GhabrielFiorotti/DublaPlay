@@ -91,5 +91,30 @@ namespace DublaPlay.Controllers
 
 
         }
+
+        [HttpGet("[action]")]
+        public IActionResult BuscarSolicitacaoPorEmpresa([FromQuery] int page, int size, int idEmpresa)
+        {
+
+            try
+            {
+
+                return Ok(new MessageReturn("Sucesso ao Consultar Por Empresa",
+                                            "",
+                                            true,
+                                              _serviceBuscar.BuscarSolicitacaoPorEmpresa(page, size, idEmpresa)));
+
+
+            }
+            catch
+            {
+                return BadRequest(new MessageReturn("Erro ao fazer a busca",
+                                                   "",
+                                                   false));
+
+            }
+
+
+        }
     }
 }
