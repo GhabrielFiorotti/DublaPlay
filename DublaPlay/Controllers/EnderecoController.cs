@@ -30,7 +30,6 @@ namespace DublaPlay.Controllers
                 if (ModelState.IsValid)
                 {
 
-
                     return Ok(new MessageReturn("Sucesso ao Adicionar Projeto",
                                                 "",
                                                 true,

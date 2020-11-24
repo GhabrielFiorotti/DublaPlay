@@ -25,6 +25,5 @@ namespace DublaPlay.Controllers
 
             return Ok("fafoi");
         }
-
     }
 }
