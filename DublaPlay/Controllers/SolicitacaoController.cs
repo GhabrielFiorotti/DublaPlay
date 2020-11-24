@@ -13,10 +13,14 @@ namespace DublaPlay.Controllers
     public class SolicitacaoController : Controller
     {
         private readonly ICadastroService _service;
-
-        public SolicitacaoController(ICadastroService service)
+        private readonly IBuscaService _serviceBuscar;
+        private readonly IDeletaService _servicedeletar;
+        
+        public SolicitacaoController(ICadastroService service, IBuscaService serviceBusca,IDeletaService serviceDeleta )
         {
             _service = service;
+            _serviceBuscar = serviceBusca;
+            _servicedeletar = serviceDeleta;
         }
 
 
@@ -51,5 +55,42 @@ namespace DublaPlay.Controllers
 
             }
         }
+
+
+
+        [HttpGet("[action]")]
+        public IActionResult BuscaSolicitacoesEmAberto([FromQuery] int page, int size)
+        {
+
+            try
+            {
+                if (ModelState.IsValid)
+                {
+
+
+                    return Ok(new MessageReturn("Sucesso ao Adicionar Projeto",
+                                                "",
+                                                true,
+                                                  _serviceBuscar.BuscarSolicitacaoAberto(page, size)));
+
+                }
+                else
+                {
+                    return BadRequest(new MessageReturn("Erro ao fazer a busca Projeto",
+                                                        "",
+                                                        false));
+                }
+            }
+            catch
+            {
+                return BadRequest(new MessageReturn("Erro ao fazer a busca",
+                                                   "",
+                                                   false));
+
+            }
+        }
+
+
+
     }
 }
