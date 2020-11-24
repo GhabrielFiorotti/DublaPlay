@@ -74,5 +74,10 @@ namespace Service.Services
             return _repository.BuscarUsuarios(page, size);
 
         }
+
+        public Solicitacao BuscarSolicitacaoPorId(Empresa empresa)
+        {
+            return _repository.BuscarSolicitacaoPorId(empresa);
+        }
     }
 }

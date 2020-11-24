@@ -30,7 +30,7 @@ namespace DublaPlay.Controllers
                 {
 
 
-                    return Ok(new MessageReturn("Sucesso ao Adicionar Projeto",
+                    return Ok(new MessageReturn("Sucesso ao Adicionar ao banco de dados",
                                                 "",
                                                 true,
                                                   _service.CadastrarContrato(contrato)));
@@ -38,14 +38,14 @@ namespace DublaPlay.Controllers
                 }
                 else
                 {
-                    return BadRequest(new MessageReturn("Erro ao Adicionar Projeto",
-                                                        "Preencha todos os campos.",
+                    return BadRequest(new MessageReturn("Erro ao Adicionar Contrato",
+                                                        "",
                                                         false));
                 }
             }
             catch
             {
-                return BadRequest(new MessageReturn("Erro ao Adicionar Projeto",
+                return BadRequest(new MessageReturn("Erro ao Adicionar Contrato",
                                                    "Erro ao adicionar projeto, por favor tente novamente mais tarde.",
                                                    false));
 

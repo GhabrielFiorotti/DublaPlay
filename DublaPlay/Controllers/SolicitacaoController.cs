@@ -88,9 +88,42 @@ namespace DublaPlay.Controllers
                                                    false));
 
             }
+
+
         }
 
+        [HttpGet("[action]")]
+        public IActionResult BuscaSolicitacaoPorId([FromQuery] Empresa empresa)
+        {
+
+            try
+            {
+                if (ModelState.IsValid)
+                {
 
 
-    }
+                    return Ok(new MessageReturn("Sucesso ao Adicionar Projeto",
+                                                "",
+                                                true,
+                                                  _serviceBuscar.BuscarSolicitacaoPorId(empresa)));
+
+                }
+                else
+                {
+                    return BadRequest(new MessageReturn("Erro ao fazer a busca Projeto",
+                                                        "",
+                                                        false));
+                }
+            }
+            catch
+            {
+                return BadRequest(new MessageReturn("Erro ao fazer a busca",
+                                                   "",
+                                                   false));
+
+            }
+
+
+
+        }
 }

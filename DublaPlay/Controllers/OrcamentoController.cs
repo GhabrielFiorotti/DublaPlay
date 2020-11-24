@@ -63,7 +63,7 @@ namespace DublaPlay.Controllers
                 {
 
 
-                    return Ok(new MessageReturn("Sucesso ao Adicionar Projeto",
+                    return Ok(new MessageReturn("Sucesso ao fazer a busca",
                                                 "",
                                                 true,
                                                   _serviceBuscar.BuscarOrcamentos(page, size)));
