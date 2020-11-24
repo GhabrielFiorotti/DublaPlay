@@ -13,11 +13,12 @@ namespace DublaPlay.Controllers
     {
         
         private readonly ICadastroService _service;
+        private readonly IBuscaService _serviceBusca;
 
-        public EmpresaController(ICadastroService service)
+        public EmpresaController(ICadastroService service, IBuscaService serviceBusca)
         {
-        
             _service = service;
+            _serviceBusca = serviceBusca;
         }
 
         [HttpPost("[action]")]
@@ -51,18 +52,35 @@ namespace DublaPlay.Controllers
 
             }
         }
+
+
         [HttpPost("[action]")]
         public IActionResult LoginEmpresa([FromBody] Empresa empresa)
         {
-
-            if (_serviceBusca.BuscarEmpresa(empresa) != null)
+            try
             {
-                return Ok("Logado com sucesso");
+                var resposta = _serviceBusca.BuscarEmpresa(empresa);
+                if (resposta != null)
+                {
+                    return Ok(new MessageReturn("Logado com sucesso",
+                                                       "Logado com sucesso",
+                                                        true,
+                                                        resposta));
 
+                }
+                else
+                {
+                    return Ok(new MessageReturn("Erro ao fazer login",
+                                                       "",
+                                                       false));
+
+                }
             }
-            else
+            catch
             {
-                return Ok("Não pois realizar o login, verifique se os dados foram digitados corretamente.");
+                return BadRequest(new MessageReturn("Erro fazer login",
+                                                   "",
+                                                   false));
 
             }
 

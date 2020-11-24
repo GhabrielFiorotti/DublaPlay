@@ -24,23 +24,63 @@ namespace DublaPlay.Controllers
         [HttpPost("[action]")]
         public IActionResult CadastroLocutor([FromBody] Usuario usuario)
         {
-            _service.CadastrarUsuario(usuario);
 
-            return Ok("fafoi");
+            try
+            {
+                if (ModelState.IsValid)
+                {
+
+
+                    return Ok(new MessageReturn("Sucesso ao Adicionar Projeto",
+                                                "",
+                                                true,
+                                                  _service.CadastrarUsuario(usuario)));
+
+                }
+                else
+                {
+                    return BadRequest(new MessageReturn("Erro ao Adicionar Projeto",
+                                                        "Preencha todos os campos.",
+                                                        false));
+                }
+            }
+            catch
+            {
+                return BadRequest(new MessageReturn("Erro ao Adicionar Projeto",
+                                                   "Erro ao adicionar projeto, por favor tente novamente mais tarde.",
+                                                   false));
+
+            }
         }
 
         [HttpPost("[action]")]
         public IActionResult LoginUsuario([FromBody] Usuario usuario)
         {
-            
-            if (_serviceBusca.BuscarUsuario(usuario) != null)
+            try
             {
-                return Ok("Logado com sucesso");
+                var resposta = _serviceBusca.BuscarUsuario(usuario);
+                if (resposta != null)
+                {
 
+                    return Ok(new MessageReturn("Logado com sucesso",
+                                                       "Logado com sucesso",
+                                                        true,
+                                                        resposta));
+
+                }
+                else
+                {
+                    return Ok(new MessageReturn("Erro ao fazer login",
+                                                       "",
+                                                       false));
+
+                }
             }
-            else
+            catch
             {
-                return Ok("Não pois realizar o login, verifique se os dados foram digitados corretamente.");
+                return BadRequest(new MessageReturn("Erro fazer login",
+                                                   "",
+                                                   false));
 
             }
 
