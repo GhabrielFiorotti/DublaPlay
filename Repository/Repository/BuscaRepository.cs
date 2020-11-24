@@ -49,7 +49,8 @@ namespace Repository.Repository
 
         public Usuario BuscarUsuario(Usuario usuario)
         {
-            return _con.Usuario.Where(x => x.idUsuario == usuario.idUsuario).FirstOrDefault();
+
+            return _con.Usuario.Where(x => x.Cpf == usuario.Cpf && x.Senha == usuario.Senha).FirstOrDefault();
 
         }
 
