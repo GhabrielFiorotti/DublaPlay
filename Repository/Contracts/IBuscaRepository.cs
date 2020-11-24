@@ -13,6 +13,7 @@ namespace Repository.Contracts
         Solicitacao BuscarSolicitacao(Solicitacao solicitacao);
         Usuario BuscarUsuario(Usuario usuario);
         List<Solicitacao> BuscarSolicitacaoPorEmpresa(int page, int size, int idEmpresa);
+        List<Orcamento> BuscarSolicitacaoPorOrcamento(int page, int size, int idSolicitacao);
         List<Solicitacao> BuscarSolicitacaoAberto(int page, int size);
         List<Contrato> BuscarContratos(int page, int size);
         List<Empresa> BuscarEmpresas(int page, int size);

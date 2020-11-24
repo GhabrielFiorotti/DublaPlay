@@ -56,6 +56,16 @@ namespace Repository.Repository
 
         }
 
+        public List<Orcamento> BuscarSolicitacaoPorOrcamento(int page, int size, int idSolicitacao)
+        {
+            return _con.Orcamento
+                      .Skip((page - 1) * size)
+                      .Include(j => j.Solicitacao)
+                      .Take(size)
+                      .Where(x => x.Solicitacao.idSolicitacao == idSolicitacao)
+                      .ToList();
+        }
+
         public List<Solicitacao> BuscarSolicitacaoPorEmpresa(int page, int size, int idEmpresa)
         {
             return _con.Solicitacao

@@ -116,5 +116,31 @@ namespace DublaPlay.Controllers
 
 
         }
+
+        [HttpGet("[action]")]
+        public IActionResult BuscarSolicitacaoPorOrcamento([FromQuery] int page, int size, int idSolicitacao)
+        {
+
+            try
+            {
+
+                return Ok(new MessageReturn("Sucesso ao Consultar",
+                                            "",
+                                            true,
+                                              _serviceBuscar.BuscarSolicitacaoPorOrcamento(page, size, idSolicitacao)));
+
+
+            }
+            catch
+            {
+                return BadRequest(new MessageReturn("Erro ao fazer a busca",
+                                                   "",
+                                                   false));
+
+            }
+
+
+        }
+
     }
 }
