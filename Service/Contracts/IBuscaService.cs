@@ -18,6 +18,6 @@ namespace Service.Contracts
         List<Orcamento> BuscarOrcamentos(int page, int size);
         List<Solicitacao> BuscarSolicitacoes(int page, int size);
         List<Usuario> BuscarUsuarios(int page, int size);
-        object BuscarSolicitacaoPorId(Empresa empresa);
+        List<Solicitacao> BuscarSolicitacaoPorId(int page, int size, int id);
     }
 }

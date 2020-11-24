@@ -37,10 +37,15 @@ namespace Repository.Repository
         {
             return _con.Solicitacao.Where(x => x.idSolicitacao == solicitacao.idSolicitacao).FirstOrDefault();
         }
-        public Solicitacao BuscarSolicitacaoPorId(Empresa empresa)
+        public List<Solicitacao> BuscarSolicitacaoPorId(int page, int size, int id)
         {
-            return _con.Solicitacao.Where(x => x.Empresa.idEmpresa == empresa.idEmpresa).FirstOrDefault();
+            return _con.Solicitacao
+                    .Skip((page - 1) * size)
+                    .Take(size)
+                    .Where(x => x.Empresa.idEmpresa == id)
+                    .ToList();
         }
+
 
         public List<Solicitacao> BuscarSolicitacaoAberto(int page, int size)
         {
@@ -97,6 +102,10 @@ namespace Repository.Repository
                         .Take(size)
                         .ToList();
         }
-                
+
+        public Solicitacao BuscarSolicitacaoPorId(Empresa empresa)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

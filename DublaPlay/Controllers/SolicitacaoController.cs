@@ -15,8 +15,8 @@ namespace DublaPlay.Controllers
         private readonly ICadastroService _service;
         private readonly IBuscaService _serviceBuscar;
         private readonly IDeletaService _servicedeletar;
-        
-        public SolicitacaoController(ICadastroService service, IBuscaService serviceBusca,IDeletaService serviceDeleta )
+
+        public SolicitacaoController(ICadastroService service, IBuscaService serviceBusca, IDeletaService serviceDeleta)
         {
             _service = service;
             _serviceBuscar = serviceBusca;
@@ -93,7 +93,7 @@ namespace DublaPlay.Controllers
         }
 
         [HttpGet("[action]")]
-        public IActionResult BuscaSolicitacaoPorId([FromQuery] Empresa empresa)
+        public IActionResult BuscarSolicitacaoPorId([FromQuery] int page, int size, int id)
         {
 
             try
@@ -105,7 +105,7 @@ namespace DublaPlay.Controllers
                     return Ok(new MessageReturn("Sucesso ao Adicionar Projeto",
                                                 "",
                                                 true,
-                                                  _serviceBuscar.BuscarSolicitacaoPorId(empresa)));
+                                                  _serviceBuscar.BuscarSolicitacaoPorId(page, size, id)));
 
                 }
                 else
@@ -124,6 +124,7 @@ namespace DublaPlay.Controllers
             }
 
 
-
         }
+
+    }
 }
