@@ -18,6 +18,5 @@ namespace Repository.Contracts
         List<Orcamento> BuscarOrcamentos(int page, int size);
         List<Solicitacao> BuscarSolicitacoes(int page, int size);
         List<Usuario> BuscarUsuarios(int page, int size);
-        Solicitacao BuscarSolicitacaoPorId(Empresa empresa);
     }
 }

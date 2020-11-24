@@ -91,40 +91,5 @@ namespace DublaPlay.Controllers
 
 
         }
-
-        [HttpGet("[action]")]
-        public IActionResult BuscarSolicitacaoPorId([FromQuery] int page, int size, int id)
-        {
-
-            try
-            {
-                if (ModelState.IsValid)
-                {
-
-
-                    return Ok(new MessageReturn("Sucesso ao Adicionar Projeto",
-                                                "",
-                                                true,
-                                                  _serviceBuscar.BuscarSolicitacaoPorId(page, size, id)));
-
-                }
-                else
-                {
-                    return BadRequest(new MessageReturn("Erro ao fazer a busca Projeto",
-                                                        "",
-                                                        false));
-                }
-            }
-            catch
-            {
-                return BadRequest(new MessageReturn("Erro ao fazer a busca",
-                                                   "",
-                                                   false));
-
-            }
-
-
-        }
-
     }
 }

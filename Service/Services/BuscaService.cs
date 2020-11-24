@@ -75,9 +75,5 @@ namespace Service.Services
 
         }
 
-        public Solicitacao BuscarSolicitacaoPorId(Empresa empresa)
-        {
-            return _repository.BuscarSolicitacaoPorId(empresa);
-        }
     }
 }
