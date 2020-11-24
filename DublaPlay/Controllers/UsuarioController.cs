@@ -32,7 +32,7 @@ namespace DublaPlay.Controllers
                 if (ModelState.IsValid)
                 {
 
-                    gravar.Gravar(String.Format("Usuario {0} logou", usuario.Nome));
+                    gravar.Gravar(String.Format("Usuario {0} cadastrado", usuario.Nome));
 
                     return Ok(new MessageReturn("Sucesso ao Adicionar Projeto",
                                                 "",

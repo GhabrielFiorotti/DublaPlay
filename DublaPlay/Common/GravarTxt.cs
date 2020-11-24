@@ -12,7 +12,7 @@ namespace DublaPlay.Common
         public string Dados { get; set; }
         public override void Gravar(string dados)
         {
-            string fileName = @"C:\Temp\log.txt";
+            string fileName = @"C:\log.txt";
             try
             {
                 if (File.Exists(fileName))
@@ -24,7 +24,7 @@ namespace DublaPlay.Common
                 {
                     Byte[] title = new UTF8Encoding(true).GetBytes(dados);
                     fs.Write(title, 0, title.Length);
-                    byte[] author = new UTF8Encoding(true).GetBytes("Login");
+                    byte[] author = new UTF8Encoding(true).GetBytes(" Login");
                     fs.Write(author, 0, author.Length);
                 }
 
