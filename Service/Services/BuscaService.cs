@@ -43,7 +43,7 @@ namespace Service.Services
 
         public List<Orcamento> BuscarSolicitacaoPorOrcamento(int page, int size, int idSolicitacao) {
 
-            return BuscarSolicitacaoPorOrcamento(page, size, idSolicitacao);
+            return _repository.BuscarSolicitacaoPorOrcamento(page, size, idSolicitacao);
         }
 
         public List<Solicitacao> BuscarSolicitacaoPorEmpresa(int page, int size, int idEmpresa)
