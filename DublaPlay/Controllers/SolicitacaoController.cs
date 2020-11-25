@@ -121,13 +121,25 @@ namespace DublaPlay.Controllers
         public IActionResult BuscarSolicitacaoPorOrcamento([FromQuery] int page, int size, int idSolicitacao)
         {
 
+            List<Orcamento> orcamento = _serviceBuscar.BuscarSolicitacaoPorOrcamento(page, size, idSolicitacao);
+
             try
             {
+                if (orcamento.Count() != 0)
+                {
 
-                return Ok(new MessageReturn("Sucesso ao Consultar",
-                                            "",
-                                            true,
-                                              _serviceBuscar.BuscarSolicitacaoPorOrcamento(page, size, idSolicitacao)));
+                    return Ok(new MessageReturn("Sucesso ao Consultar",
+                                                "",
+                                                true,
+                                                 orcamento));
+                }
+                else
+                {
+
+                    return BadRequest(new MessageReturn("Não Existe Solicitações",
+                                                   "",
+                                                   false));
+                }
 
 
             }
